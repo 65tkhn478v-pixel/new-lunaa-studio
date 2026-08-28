@@ -1,0 +1,39 @@
+/* =========================================================
+   CE QU'ON GÈRE
+   ========================================================= */
+.manage-list{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.manage-item{
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 2.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  transition: background 0.4s var(--ease);
+}
+.manage-item:hover{ background: var(--paper-raised); }
+.manage-item svg{ width: 26px; height: 26px; }
+.manage-item svg path, .manage-item svg circle, .manage-item svg rect{
+  stroke: var(--ink);
+}
+.manage-item:hover svg path, .manage-item:hover svg circle, .manage-item:hover svg rect{
+  stroke: var(--terracotta);
+}
+.manage-item span{ font-size: 0.9rem; font-weight: 600; }
+
+@media (max-width: 1000px){
+  .manage-list{ grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 860px){
+  .manage-list{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px){
+  .manage-list{ grid-template-columns: 1fr 1fr; }
+}

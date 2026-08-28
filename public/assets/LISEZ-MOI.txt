@@ -1,0 +1,25 @@
+Lunaa Studio — signe 5B « Disque strié »
+
+Palette
+  Noir     #111111
+  Ivoire   #F5F1E8
+  Cuivre   #C97B3A
+  Blanc    #FFFFFF
+
+Fichiers
+  icone-couleur.svg        icône principale (bandes noires, bande centrale cuivre)
+  icone-mono-noir.svg      monochrome noir, pour fond clair
+  icone-mono-blanc.svg     monochrome blanc, pour fond foncé
+  favicon-couleur.svg      version favicon (bandes élargies, marges réduites)
+  favicon-32.png           favicon 32x32
+  favicon-512.png          icône 512x512 (avatar, app)
+  lockup-couleur.svg       icône + « lunaa STUDIO »
+  lockup-mono-noir.svg     lockup monochrome noir
+  lockup-mono-blanc.svg    lockup monochrome blanc
+
+Typographie du lockup : Karla 700. Les fichiers SVG utilisent du texte vivant :
+si Karla n'est pas installée, la police de repli s'appliquera. Pour un usage
+définitif, vectoriser le texte dans un éditeur.
+
+Zone de protection : garder au minimum la largeur d'une bande autour du signe.
+Taille minimale de l'icône : 16 px. En dessous de 24 px, utiliser la version favicon.

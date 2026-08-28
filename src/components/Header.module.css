@@ -1,0 +1,156 @@
+/* =========================================================
+   Navigation — pilule flottante
+   ========================================================= */
+.nav-shell{
+  position: fixed;
+  top: 1.1rem;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0 var(--gutter);
+  pointer-events: none;
+}
+
+.nav{
+  pointer-events: auto;
+  width: 100%;
+  max-width: 920px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.6rem 0.5rem 1.1rem;
+  background: rgba(247, 241, 230, 0.72);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 1px 1px rgba(23,19,15,0.03), 0 12px 30px -18px rgba(23,19,15,0.35);
+  transition: box-shadow 0.4s var(--ease), background 0.4s var(--ease);
+}
+
+.nav.is-scrolled{
+  box-shadow: 0 1px 1px rgba(23,19,15,0.04), 0 18px 40px -16px rgba(23,19,15,0.45);
+}
+
+.nav-brand{
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.nav-brand img{ width: 26px; height: 26px; }
+.nav-brand small{
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--terracotta-deep);
+  font-size: 0.62em;
+  margin-left: 0.1em;
+}
+
+.nav-links{
+  display: flex;
+  align-items: center;
+  gap: 1.9rem;
+}
+.nav-links a{
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  position: relative;
+  padding: 0.2rem 0;
+}
+.nav-links a::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 100%;
+  bottom: -2px;
+  height: 1.5px;
+  background: var(--terracotta);
+  transition: right 0.35s var(--ease);
+}
+.nav-links a:hover::after{ right: 0; }
+
+.nav-cta{
+  display: inline-flex;
+}
+
+.nav-toggle{
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--ink);
+  flex: none;
+}
+.nav-toggle span{
+  position: absolute;
+  left: 11px;
+  right: 11px;
+  height: 1.5px;
+  background: var(--paper);
+  transition: transform 0.4s var(--ease), opacity 0.3s var(--ease), top 0.4s var(--ease);
+}
+.nav-toggle span:nth-child(1){ top: 15px; }
+.nav-toggle span:nth-child(2){ top: 21px; }
+.nav-toggle span:nth-child(3){ top: 27px; }
+.nav-toggle.is-open span:nth-child(1){ top: 20px; transform: rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2){ opacity: 0; }
+.nav-toggle.is-open span:nth-child(3){ top: 20px; transform: rotate(-45deg); }
+
+.mobile-menu{
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(23, 19, 15, 0.94);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s var(--ease);
+}
+.mobile-menu.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+.mobile-menu a{
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 7vw, 2.6rem);
+  color: var(--paper);
+  opacity: 0;
+  transform: translateY(2.5rem);
+  transition: transform 0.6s var(--ease-soft), opacity 0.6s var(--ease-soft);
+}
+.mobile-menu.is-open a{ opacity: 1; transform: translateY(0); }
+.mobile-menu.is-open a:nth-child(1){ transition-delay: 0.08s; }
+.mobile-menu.is-open a:nth-child(2){ transition-delay: 0.14s; }
+.mobile-menu.is-open a:nth-child(3){ transition-delay: 0.2s; }
+.mobile-menu.is-open a:nth-child(4){ transition-delay: 0.26s; }
+.mobile-menu.is-open a:nth-child(5){ transition-delay: 0.32s; }
+.mobile-menu-foot{
+  position: absolute;
+  bottom: 2.2rem;
+  font-size: 0.85rem;
+  color: var(--paper-dim);
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-soft) 0.4s;
+}
+.mobile-menu.is-open .mobile-menu-foot{ opacity: 0.7; }
+
+@media (max-width: 860px){
+  .nav-links{ display: none; }
+  .nav-cta{ display: none; }
+  .nav-toggle{ display: block; }
+  .nav{ padding: 0.5rem; justify-content: space-between; }
+}

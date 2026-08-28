@@ -1,0 +1,87 @@
+/* =========================================================
+   TARIFS
+   ========================================================= */
+.pricing-note{
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.7rem;
+  font-size: 0.98rem;
+  color: var(--ink-soft);
+  margin-bottom: 2.6rem;
+  max-width: 640px;
+}
+.pricing-note strong{ color: var(--terracotta-deep); }
+
+.plans{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.plan{
+  border-radius: var(--radius-lg);
+  padding: clamp(1.8rem, 3vw, 2.6rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  border: 1px solid var(--line);
+  background: var(--paper-raised);
+}
+.plan-featured{
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+  transform: translateY(-0.6rem);
+}
+.plan-head{ display: flex; flex-direction: column; gap: 0.7rem; }
+.plan-badge{
+  align-self: flex-start;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--terracotta);
+  color: var(--ink);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+}
+.plan-name{ font-family: var(--serif); font-size: 1.5rem; }
+.plan-price{
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-family: var(--serif);
+}
+.plan-price .amount{ font-size: 2.6rem; }
+.plan-price .period{
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.6;
+}
+.plan-featured .plan-price .period{ opacity: 0.55; }
+
+.plan-features{
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  flex: 1;
+}
+.plan-features li{
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 0.96rem;
+}
+.plan-featured .plan-features li{ color: rgba(247,241,230,0.85); }
+.plan:not(.plan-featured) .plan-features li{ color: var(--ink-soft); }
+.plan-features li svg{ flex: none; margin-top: 0.2rem; }
+.plan-features li svg path{ stroke: var(--terracotta); }
+.plan-featured .plan-features li svg path{ stroke: var(--terracotta); }
+
+.plan :global(.btn){ align-self: flex-start; margin-top: auto; }
+
+@media (max-width: 860px){
+  .plans{ grid-template-columns: 1fr; }
+  .plan-featured{ transform: none; }
+}

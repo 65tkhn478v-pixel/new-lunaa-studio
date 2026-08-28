@@ -1,0 +1,82 @@
+/* =========================================================
+   QUI SUIS-JE — split éditorial
+   ========================================================= */
+.about{
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+.about-visual{
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(155deg, var(--terracotta-tint), var(--paper-dim));
+  border: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.6rem;
+}
+.about-visual .initial{
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(6rem, 14vw, 9rem);
+  color: rgba(23,19,15,0.1);
+  position: absolute;
+  top: -1rem; left: 0.5rem;
+  line-height: 1;
+}
+.about-visual-card{
+  position: relative;
+  z-index: 1;
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.2rem;
+  width: 100%;
+}
+.about-visual-card .role{
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--terracotta-deep);
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.about-visual-card .place{
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+
+.about-copy p{
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-family: var(--serif);
+  font-weight: 440;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  margin-bottom: 1.6rem;
+}
+.about-copy p.small{
+  font-family: var(--sans);
+  font-size: 1.02rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+.about-copy .link-arrow{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-size: 0.98rem;
+  margin-top: 0.6rem;
+  border-bottom: 1.5px solid var(--terracotta);
+  padding-bottom: 0.15rem;
+  transition: gap 0.3s var(--ease);
+}
+.about-copy .link-arrow:hover{ gap: 0.85rem; }
+
+@media (max-width: 1000px){
+  .about{ grid-template-columns: 1fr; }
+  .about-visual{ max-width: 340px; margin: 0 auto; }
+}

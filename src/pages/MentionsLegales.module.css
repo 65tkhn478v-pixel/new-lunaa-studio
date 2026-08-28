@@ -1,0 +1,25 @@
+/* =========================================================
+   Mentions légales — page dédiée
+   ========================================================= */
+.legal{
+  padding: clamp(8rem, 12vw, 10rem) 0 6rem;
+  max-width: 760px;
+}
+.legal h1{ font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 2rem; }
+.legal h2{
+  font-size: 1.3rem;
+  margin-top: 2.6rem;
+  margin-bottom: 0.8rem;
+}
+.legal p{ color: var(--ink-soft); margin-bottom: 0.6rem; }
+.legal a{ color: var(--terracotta-deep); border-bottom: 1px solid var(--terracotta-tint); }
+.legal .back{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+.legal .back:hover{ color: var(--ink); }

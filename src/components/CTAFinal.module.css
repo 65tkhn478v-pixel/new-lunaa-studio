@@ -1,0 +1,48 @@
+/* =========================================================
+   CTA FINAL
+   ========================================================= */
+.cta-final{
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--radius-lg);
+  padding: clamp(3rem, 7vw, 5.5rem) clamp(1.6rem, 6vw, 5rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-final::before{
+  content: "";
+  position: absolute;
+  width: 60vw; height: 60vw;
+  max-width: 700px; max-height: 700px;
+  background: radial-gradient(circle, rgba(201,123,58,0.22), transparent 70%);
+  top: -20%; right: -10%;
+  pointer-events: none;
+}
+.cta-final :global(.eyebrow){ color: var(--terracotta); justify-content: center; }
+.cta-final h2{
+  color: var(--paper);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  max-width: 18ch;
+  margin: 1.2rem auto 1.3rem;
+}
+.cta-final p{
+  color: rgba(247,241,230,0.75);
+  max-width: 52ch;
+  margin: 0 auto 2.4rem;
+  font-size: 1.05rem;
+}
+.cta-final-actions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+}
+.cta-final-mail{
+  font-size: 0.95rem;
+  color: rgba(247,241,230,0.6);
+}
+.cta-final-mail a{
+  color: var(--paper);
+  border-bottom: 1px solid rgba(247,241,230,0.4);
+}
