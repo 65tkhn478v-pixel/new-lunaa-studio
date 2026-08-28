@@ -1,0 +1,53 @@
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem;
+  max-width: 640px;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 1.6rem 1.7rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper-raised);
+  transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.card:hover{
+  border-color: var(--terracotta);
+  transform: translateY(-3px);
+}
+
+.icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--paper-dim);
+  color: var(--ink);
+  transition: background 0.4s var(--ease), color 0.4s var(--ease);
+}
+.card:hover .icon{
+  background: var(--terracotta-tint);
+  color: var(--terracotta-deep);
+}
+
+.name{
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.role{
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+@media (max-width: 560px){
+  .grid{ grid-template-columns: 1fr; }
+}

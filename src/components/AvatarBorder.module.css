@@ -1,0 +1,64 @@
+.wrapper{
+  position: relative;
+  width: 3.4rem;
+  height: 3.4rem;
+  flex: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* anneau en dégradé conique tournant */
+.spin{
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--terracotta) 0deg,
+    var(--terracotta-tint) 120deg,
+    transparent 200deg,
+    var(--terracotta-deep) 320deg,
+    var(--terracotta) 360deg
+  );
+  animation: spin 5s linear infinite;
+}
+
+.inner{
+  position: absolute;
+  inset: 2.5px;
+  border-radius: 50%;
+  background: var(--paper-dim);
+  color: var(--terracotta-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: 1.05rem;
+  border: 1.5px solid var(--paper-raised);
+}
+
+.badge{
+  position: absolute;
+  right: -0.15rem;
+  bottom: -0.15rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background: var(--terracotta);
+  color: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--paper-raised);
+}
+
+@keyframes spin{
+  to{ transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .spin{ animation: none; }
+}

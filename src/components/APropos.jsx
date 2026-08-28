@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import AvatarBorder from "./AvatarBorder";
 import styles from "./APropos.module.css";
 
 export default function APropos() {
@@ -9,8 +10,11 @@ export default function APropos() {
           <Reveal as="div" className={styles["about-visual"]}>
             <span className={styles.initial}>L.</span>
             <div className={styles["about-visual-card"]}>
-              <div className={styles.role}>Fondateur</div>
-              <div className={styles.place}>Louis, basé à Lille</div>
+              <AvatarBorder />
+              <div>
+                <div className={styles.role}>Fondateur</div>
+                <div className={styles.place}>Louis, basé à Lille</div>
+              </div>
             </div>
           </Reveal>
           <Reveal as="div" delay={1} className={styles["about-copy"]}>

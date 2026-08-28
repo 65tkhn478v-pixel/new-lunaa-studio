@@ -1,0 +1,44 @@
+.background{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* grille de lignes fines, très discrète sur toute la page */
+.grid{
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, var(--line-soft) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--line-soft) 1px, transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.28;
+}
+
+/* deux taches de dégradé radial flouté, ancrées en bas de page */
+.blob{
+  position: absolute;
+  bottom: -14rem;
+  width: clamp(18rem, 40vw, 30rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(140px);
+}
+
+.blob-copper{
+  left: 6%;
+  background: var(--terracotta);
+  opacity: 0.16;
+}
+
+.blob-neutral{
+  right: 4%;
+  background: var(--paper-dim);
+  opacity: 0.4;
+}
+
+@media (max-width: 480px){
+  .grid{ opacity: 0.18; }
+}

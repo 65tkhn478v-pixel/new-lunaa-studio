@@ -1,0 +1,45 @@
+.wrapper{
+  position: relative;
+  display: inline-flex;
+  padding: 2px;
+  border-radius: 999px;
+}
+
+/* anneau clippé qui contient le dégradé tournant — ne recouvre pas
+   .content, donc ne rogne jamais son ombre au survol */
+.spin{
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  overflow: hidden;
+  z-index: 0;
+}
+.spin::before{
+  content: "";
+  position: absolute;
+  inset: -60%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 260deg,
+    var(--terracotta) 300deg,
+    var(--ink) 330deg,
+    transparent 360deg
+  );
+  animation: spin 3.2s linear infinite;
+}
+
+.content{
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  border-radius: 999px;
+}
+
+@keyframes spin{
+  to{ transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .spin::before{ animation: none; }
+}

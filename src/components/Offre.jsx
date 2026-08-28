@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import MovingBorderButton from "./MovingBorderButton";
 import styles from "./Offre.module.css";
 
 const CONTACT_MAILTO =
@@ -19,20 +20,22 @@ export default function Offre() {
                 votre avis une fois le site en ligne.
               </p>
               <p>Un e-mail, une réponse de ma part sous 24 h. Sans engagement.</p>
-              <a className="btn btn-primary" href={CONTACT_MAILTO}>
-                <span>Réserver une place gratuite</span>
-                <span className="btn-icon">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                    <path
-                      d="M3 11L11 3M11 3H4.5M11 3V9.5"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </span>
-              </a>
+              <MovingBorderButton>
+                <a className="btn btn-primary" href={CONTACT_MAILTO}>
+                  <span>Réserver une place gratuite</span>
+                  <span className="btn-icon">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path
+                        d="M3 11L11 3M11 3H4.5M11 3V9.5"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </a>
+              </MovingBorderButton>
             </div>
             <div className={styles["offer-side"]}>
               <div className={styles.slots}>

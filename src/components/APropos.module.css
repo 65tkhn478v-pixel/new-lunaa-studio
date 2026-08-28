@@ -34,6 +34,9 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
   width: 100%;
 }
 .about-visual-card .role{
