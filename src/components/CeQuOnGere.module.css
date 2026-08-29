@@ -1,39 +1,55 @@
 /* =========================================================
-   CE QU'ON GÈRE
+   CE QUE JE GÈRE — grille de cartes
    ========================================================= */
-.manage-list{
+.manage-grid{
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  border-top: 1px solid var(--line);
-  border-left: 1px solid var(--line);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
 }
-.manage-item{
-  border-right: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 2.2rem 1.4rem;
+
+.manage-card{
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
-  transition: background 0.4s var(--ease);
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.4rem 1.3rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper-raised);
+  transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
 }
-.manage-item:hover{ background: var(--paper-raised); }
-.manage-item svg{ width: 26px; height: 26px; }
-.manage-item svg path, .manage-item svg circle, .manage-item svg rect{
-  stroke: var(--ink);
-}
-.manage-item:hover svg path, .manage-item:hover svg circle, .manage-item:hover svg rect{
-  stroke: var(--terracotta);
-}
-.manage-item span{ font-size: 0.9rem; font-weight: 600; }
-
-@media (max-width: 1000px){
-  .manage-list{ grid-template-columns: repeat(3, 1fr); }
+.manage-card:hover{
+  border-color: var(--terracotta);
+  transform: translateY(-3px);
 }
 
-@media (max-width: 860px){
-  .manage-list{ grid-template-columns: repeat(2, 1fr); }
+.icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background: var(--paper-dim);
+  color: var(--ink);
+  transition: background 0.4s var(--ease), color 0.4s var(--ease);
+}
+.manage-card:hover .icon{
+  background: var(--terracotta-tint);
+  color: var(--terracotta-deep);
 }
 
-@media (max-width: 480px){
-  .manage-list{ grid-template-columns: 1fr 1fr; }
+.label{
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+
+@media (max-width: 900px){
+  .manage-grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px){
+  .manage-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

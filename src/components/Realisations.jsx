@@ -34,8 +34,8 @@ export default function Realisations() {
           <span className="eyebrow">Réalisations</span>
           <h2>Ce que ça donne, concrètement</h2>
           <p>
-            Les sites créés pour des commerçants des Hauts-de-France, présentés ici au fil des
-            mises en ligne.
+            Les sites que je crée pour des commerçants des Hauts-de-France, présentés ici au
+            fil des mises en ligne.
           </p>
         </Reveal>
 

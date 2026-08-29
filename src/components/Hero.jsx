@@ -11,10 +11,7 @@ export default function Hero() {
               <span className={styles.dot}></span>
               Sites internet pour commerçants
             </span>
-            <h1>
-              Vos clients vous cherchent avant de venir.{" "}
-              <em>S'ils ne vous trouvent pas, ils vont chez le voisin.</em>
-            </h1>
+            <h1>Une vitrine en ligne moderne, à l'image de votre commerce.</h1>
             <p className={styles["hero-sub"]}>
               Je crée, héberge et référence le site internet des commerces indépendants des
               Hauts-de-France. Boulangers, coiffeurs, artisans, petits commerces.

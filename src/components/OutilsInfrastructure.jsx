@@ -26,31 +26,31 @@ function BrandIcon({ icon, size = 20 }) {
 const TOOLS = [
   {
     name: "Cloudflare",
-    role: "Hébergement & sécurité",
+    role: "Pour l'hébergement et la sécurité de votre site, sans interruption.",
     icon: <BrandIcon icon={siCloudflare} />,
     href: "https://www.cloudflare.com",
   },
   {
     name: "Google",
-    role: "Référencement & fiche Google Business",
+    role: "Pour que votre commerce soit visible dans les recherches locales.",
     icon: <BrandIcon icon={siGoogle} />,
     href: "https://www.google.com",
   },
   {
     name: "Claude",
-    role: "Conception & développement (Anthropic)",
+    role: "Pour concevoir des interfaces design, modernes et soignées.",
     icon: <BrandIcon icon={siClaude} />,
     href: "https://www.anthropic.com/claude",
   },
   {
     name: "Figma",
-    role: "Maquettes",
+    role: "Pour préparer et affiner les maquettes avant la mise en ligne.",
     icon: <BrandIcon icon={siFigma} />,
     href: "https://www.figma.com",
   },
   {
     name: "Optimisation SEO",
-    role: "Une pratique suivie en continu, pas un outil",
+    role: "Pour que votre site remonte dans les résultats de recherche.",
     icon: <TrendingUp size={20} strokeWidth={1.6} />,
     href: null,
   },
@@ -63,7 +63,7 @@ export default function OutilsInfrastructure() {
         <Reveal as="div" className="section-head">
           <span className="eyebrow">Sous le capot</span>
           <h2>Outils &amp; infrastructure</h2>
-          <p>Les services réels qui font tourner votre site, au quotidien.</p>
+          <p>Les outils avec lesquels je travaille, au quotidien, pour faire tourner votre site.</p>
         </Reveal>
 
         <div className={styles.grid}>
