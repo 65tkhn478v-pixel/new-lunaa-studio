@@ -107,7 +107,11 @@
 
 @media (max-width: 860px){
   .hero-grid{ grid-template-columns: 1fr; }
-  .hero-art{ order: -1; max-width: 420px; margin: 0 auto 1rem; aspect-ratio: 4/3; }
+  /* width:100% explicite : sans ça, une marge auto sur un item de grid
+     à largeur "auto" désactive le stretch par défaut, et la boîte (dont
+     tout le contenu est en position:absolute) s'effondre à sa taille
+     minimale au lieu de remplir la colonne. */
+  .hero-art{ order: -1; width: 100%; max-width: 420px; margin: 0 auto 1rem; aspect-ratio: 4/3; }
 }
 
 @media (max-width: 480px){

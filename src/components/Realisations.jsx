@@ -1,40 +1,30 @@
+import { ImageOff } from "lucide-react";
 import Reveal from "./Reveal";
 import styles from "./Realisations.module.css";
 
-const SLOTS = [
+// Deux réalisations réelles. `screenshot` est vide en attendant une vraie
+// capture du site en ligne (voir note dans le JSX plus bas) — un
+// placeholder neutre est utilisé à la place, jamais une image inventée.
+const REALISATIONS = [
   {
-    delay: 0,
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="8.5" stroke="#a89a86" strokeWidth="1.3" />
-        <path
-          d="M9 12L11 14L15.5 9.5"
-          stroke="#a89a86"
-          strokeWidth="1.3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          opacity="0"
-        />
-      </svg>
-    ),
+    name: "Studio Eight",
+    caption: "Studio Eight · Prothésiste ongulaire · Lille",
+    url: "https://studio-eighttt.h9759k6njr.workers.dev",
+    screenshot: null,
   },
   {
-    delay: 1,
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="8.5" stroke="#a89a86" strokeWidth="1.3" />
-      </svg>
-    ),
-  },
-  {
-    delay: 2,
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="8.5" stroke="#a89a86" strokeWidth="1.3" />
-      </svg>
-    ),
+    name: "Mathilde Lecomte",
+    caption: "Mathilde Lecomte · Photographe · Lille",
+    url: "https://mathilde-photographe-lilloise.h9759k6njr.workers.dev",
+    screenshot: null,
   },
 ];
+
+const EMPTY_SLOT_ICON = (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="12" r="8.5" stroke="#a89a86" strokeWidth="1.3" />
+  </svg>
+);
 
 export default function Realisations() {
   return (
@@ -50,14 +40,36 @@ export default function Realisations() {
         </Reveal>
 
         <div className={styles["showcase-grid"]}>
-          {SLOTS.map((slot, i) => (
-            <Reveal as="div" key={i} delay={slot.delay} className={styles["showcase-slot"]}>
-              <div className={styles.mark} aria-hidden="true">
-                {slot.icon}
-              </div>
-              <span>Réalisation à venir</span>
+          {REALISATIONS.map((r, i) => (
+            <Reveal
+              as="a"
+              key={r.name}
+              delay={i}
+              className={styles["showcase-card"]}
+              href={r.url}
+              target="_blank"
+              rel="noopener"
+            >
+              <span className={styles["showcase-card-image"]}>
+                {r.screenshot ? (
+                  <img src={r.screenshot} alt="" />
+                ) : (
+                  // Capture d'écran réelle à intégrer manuellement — voir
+                  // message de suivi. Placeholder neutre en attendant,
+                  // aucune image inventée du site.
+                  <ImageOff size={22} strokeWidth={1.4} aria-hidden="true" />
+                )}
+              </span>
+              <span className={styles["showcase-card-caption"]}>{r.caption}</span>
             </Reveal>
           ))}
+
+          <Reveal as="div" delay={2} className={styles["showcase-slot"]}>
+            <div className={styles.mark} aria-hidden="true">
+              {EMPTY_SLOT_ICON}
+            </div>
+            <span>Réalisation à venir</span>
+          </Reveal>
         </div>
       </div>
     </section>

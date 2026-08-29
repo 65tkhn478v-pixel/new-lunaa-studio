@@ -40,6 +40,16 @@
   border: 1.5px solid var(--paper-raised);
 }
 
+.photo{
+  position: absolute;
+  inset: 2.5px;
+  width: calc(100% - 5px);
+  height: calc(100% - 5px);
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--paper-raised);
+}
+
 .badge{
   position: absolute;
   right: -0.15rem;

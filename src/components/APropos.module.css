@@ -81,5 +81,8 @@
 
 @media (max-width: 1000px){
   .about{ grid-template-columns: 1fr; }
-  .about-visual{ max-width: 340px; margin: 0 auto; }
+  /* width:100% : même cause que le hero — une marge auto sur un item de
+     grid à largeur "auto" désactive le stretch, et la boîte se
+     redimensionne sur son propre contenu au lieu de remplir la colonne. */
+  .about-visual{ width: 100%; max-width: 340px; margin: 0 auto; }
 }

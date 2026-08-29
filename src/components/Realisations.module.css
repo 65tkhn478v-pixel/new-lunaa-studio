@@ -37,6 +37,44 @@
   letter-spacing: 0.02em;
 }
 
+/* réalisation réelle — carte cliquable vers le site en ligne */
+.showcase-card{
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 4/5;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--line);
+  background: var(--paper-raised);
+  overflow: hidden;
+  transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.showcase-card:hover{
+  border-color: var(--terracotta);
+  transform: translateY(-4px);
+}
+.showcase-card-image{
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(155deg, var(--paper-dim), var(--paper-raised));
+  color: var(--muted);
+}
+.showcase-card-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.showcase-card-caption{
+  padding: 0.9rem 1.1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+}
+
 @media (max-width: 860px){
   .showcase-grid{ grid-template-columns: 1fr; }
 }
