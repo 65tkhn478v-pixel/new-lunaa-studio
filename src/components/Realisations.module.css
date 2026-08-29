@@ -54,6 +54,10 @@
 }
 .showcase-card-image{
   flex: 1;
+  /* sans ça, le min-height:auto par défaut d'un item flex laisse l'image
+     grandir à sa taille intrinsèque (height:100% ne peut pas se résoudre),
+     ce qui pousse la légende hors du cadre visible de la carte. */
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;

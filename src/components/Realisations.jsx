@@ -2,21 +2,21 @@ import { ImageOff } from "lucide-react";
 import Reveal from "./Reveal";
 import styles from "./Realisations.module.css";
 
-// Deux réalisations réelles. `screenshot` est vide en attendant une vraie
-// capture du site en ligne (voir note dans le JSX plus bas) — un
-// placeholder neutre est utilisé à la place, jamais une image inventée.
+// Deux réalisations réelles, captures fournies (mon environnement bloque
+// les connexions sortantes vers *.workers.dev, impossible de les générer
+// moi-même — voir message de suivi).
 const REALISATIONS = [
   {
     name: "Studio Eight",
     caption: "Studio Eight · Prothésiste ongulaire · Lille",
     url: "https://studio-eighttt.h9759k6njr.workers.dev",
-    screenshot: null,
+    screenshot: "/assets/realisation-studio-eight.jpg",
   },
   {
     name: "Mathilde Lecomte",
     caption: "Mathilde Lecomte · Photographe · Lille",
     url: "https://mathilde-photographe-lilloise.h9759k6njr.workers.dev",
-    screenshot: null,
+    screenshot: "/assets/realisation-mathilde.jpg",
   },
 ];
 
