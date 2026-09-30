@@ -41,15 +41,14 @@ export default function Tarifs() {
             />
             <PricingCard
               tier="Achat unique"
-              price="590 €"
-              bestFor="puis 15 € / mois d'hébergement"
+              price="500 €"
+              bestFor="payé une seule fois, aucun abonnement"
               CTA="En discuter"
               href="#contact"
               benefits={[
                 { text: "Création du site (1 à 5 pages)", checked: true },
                 { text: "Le site est payé une fois pour toutes", checked: true },
-                { text: "Hébergement et maintenance : 15 € / mois", checked: true },
-                { text: "Modifications à la demande : 45 € l'unité", checked: true },
+                { text: "Modifications à la demande : 40 € l'unité", checked: true },
               ]}
             />
           </div>
