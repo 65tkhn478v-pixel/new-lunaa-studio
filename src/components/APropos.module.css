@@ -8,7 +8,9 @@
   align-items: center;
 }
 .about-visual{
-  aspect-ratio: 3/4;
+  /* pas d'aspect-ratio : la hauteur suit le contenu (carte "Fondateur"
+     + un peu d'air en haut pour le "L." en filigrane), au lieu d'un
+     grand bloc à ratio fixe qui laissait un vide au-dessus de la carte. */
   border-radius: var(--radius-lg);
   background: linear-gradient(155deg, var(--terracotta-tint), var(--paper-dim));
   border: 1px solid var(--line);
@@ -16,7 +18,7 @@
   overflow: hidden;
   display: flex;
   align-items: flex-end;
-  padding: 1.6rem;
+  padding: clamp(3rem, 8vw, 4rem) 1.6rem 1.6rem;
 }
 .about-visual .initial{
   font-family: var(--serif);

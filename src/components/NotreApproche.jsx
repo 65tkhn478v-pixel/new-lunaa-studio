@@ -40,7 +40,7 @@ export default function NotreApproche() {
     <section className="section" id="approche">
       <div className="wrap">
         <Reveal as="div" className="section-head">
-          <span className="eyebrow">Notre approche</span>
+          <span className="eyebrow">Mon approche</span>
           <h2>De votre commerce à votre vitrine en ligne.</h2>
           <p>Une méthode simple, sans jargon, pensée pour des commerçants qui n'ont jamais eu de site.</p>
         </Reveal>
