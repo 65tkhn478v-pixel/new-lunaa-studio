@@ -1,87 +1,86 @@
 import Reveal from "./Reveal";
-import styles from "./Tarifs.module.css";
+import { Benefit, PricingCard } from "./ui/dark-gradient-pricing";
 
-const CHECK_ICON = (
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-    <path
-      d="M3 8.5L6.2 11.5L13 4"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const ARROW_ICON = (
-  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-    <path
-      d="M3 11L11 3M11 3H4.5M11 3V9.5"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
+const SERIF = "font-[family-name:var(--serif)] font-[560]";
 
 export default function Tarifs() {
   return (
-    <section className="section" id="tarifs">
-      <div className="wrap">
-        <Reveal as="div" className="section-head">
-          <span className="eyebrow">Tarifs standards</span>
+    <section className="section overflow-hidden bg-[#111111] text-[#F5F1E8]" id="tarifs">
+      <div
+        className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[900px] max-w-none -translate-x-1/2 bg-[radial-gradient(closest-side,rgba(201,123,58,0.22),transparent)]"
+        aria-hidden="true"
+      />
+
+      <div className="wrap relative">
+        <Reveal as="div" className="section-head mx-auto items-center text-center">
+          <span className="eyebrow text-[#C97B3A]">Tarifs standards</span>
           <h2>Après le lancement</h2>
-          <p>
+          <p className="!text-[#F5F1E8]/70">
             Ce sont les tarifs qui s'appliquent après la période de lancement. Les 3 places de
             ce mois-ci restent à 15 €/mois d'hébergement.
           </p>
         </Reveal>
 
-        <div className={styles.plans}>
-          <Reveal as="div" className={styles.plan}>
-            <div className={styles["plan-head"]}>
-              <span className={styles["plan-name"]}>Essentiel</span>
-              <div className={styles["plan-price"]}>
-                <span className={styles.amount}>39 €</span>
-                <span className={styles.period}>/ mois</span>
-              </div>
-            </div>
-            <ul className={styles["plan-features"]}>
-              <li>{CHECK_ICON} Site professionnel de 1 à 5 pages</li>
-              <li>{CHECK_ICON} Hébergement inclus</li>
-              <li>{CHECK_ICON} Maintenance et mises à jour</li>
-              <li>{CHECK_ICON} 1 modification par mois</li>
-            </ul>
-            <a className="btn btn-ghost" href="#contact">
-              <span>En discuter</span>
-              <span className="btn-icon">{ARROW_ICON}</span>
-            </a>
-          </Reveal>
+        <div className="mx-auto max-w-5xl">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <PricingCard
+              featured
+              badge="Le plus choisi"
+              tier="Abonnement"
+              price="39 €"
+              period="/ mois"
+              bestFor="0 € à la création · engagement 12 mois"
+              CTA="En discuter"
+              href="#contact"
+              benefits={[
+                { text: "Création du site incluse (1 à 5 pages)", checked: true },
+                { text: "Hébergement inclus", checked: true },
+                { text: "Maintenance et mises à jour", checked: true },
+                { text: "1 modification par mois", checked: true },
+              ]}
+            />
+            <PricingCard
+              tier="Achat unique"
+              price="590 €"
+              bestFor="puis 15 € / mois d'hébergement"
+              CTA="En discuter"
+              href="#contact"
+              benefits={[
+                { text: "Création du site (1 à 5 pages)", checked: true },
+                { text: "Le site est payé une fois pour toutes", checked: true },
+                { text: "Hébergement et maintenance : 15 € / mois", checked: true },
+                { text: "Modifications à la demande : 45 € l'unité", checked: true },
+              ]}
+            />
+          </div>
 
+          {/* Complément compatible avec les deux formules, pas un 3ᵉ tier :
+              bloc pleine largeur, visuellement en retrait des cartes. */}
           <Reveal
             as="div"
-            delay={1}
-            className={`${styles.plan} ${styles["plan-featured"]}`}
+            className="mt-6 grid gap-6 rounded-[2rem] border border-dashed border-[#C97B3A]/40 bg-[#F5F1E8]/[0.03] p-6 sm:p-8 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:items-center"
           >
-            <div className={styles["plan-head"]}>
-              <span className={styles["plan-badge"]}>Pour être trouvé sur Google</span>
-              <span className={styles["plan-name"]}>Visibilité</span>
-              <div className={styles["plan-price"]}>
-                <span className={styles.amount}>69 €</span>
-                <span className={styles.period}>/ mois</span>
-              </div>
+            <div className="flex flex-col gap-2">
+              <span className={`text-2xl text-[#FFFFFF] ${SERIF}`}>Option Visibilité</span>
+              <span className="inline-flex items-baseline gap-2">
+                <span className={`text-3xl text-[#C97B3A] ${SERIF}`}>+30 €</span>
+                <span className="text-[0.9rem] font-medium text-[#F5F1E8]/60">/ mois</span>
+              </span>
+              <span className="text-[0.9rem] text-[#F5F1E8]/60">
+                (compatible avec les deux formules)
+              </span>
             </div>
-            <ul className={styles["plan-features"]}>
-              <li>{CHECK_ICON} Tout ce que comprend l'offre Essentiel</li>
-              <li>{CHECK_ICON} Fiche Google Business créée et tenue à jour</li>
-              <li>{CHECK_ICON} Un article SEO par mois</li>
-              <li>{CHECK_ICON} Suivi de votre position dans les recherches</li>
+            <ul className="space-y-4">
+              <Benefit text="Fiche Google Business créée et tenue à jour" checked />
+              <Benefit text="Un article SEO par mois" checked />
+              <Benefit text="Suivi de votre position dans les recherches" checked />
             </ul>
-            <a className="btn btn-light" href="#contact">
-              <span>En discuter</span>
-              <span className="btn-icon">{ARROW_ICON}</span>
-            </a>
           </Reveal>
+
+          <p className="mt-8 text-center text-[0.85rem] text-[#F5F1E8]/55">
+            Une modification = changement de texte, photo, horaires ou tarifs. Une nouvelle page
+            fait l'objet d'un devis.
+          </p>
         </div>
       </div>
     </section>
