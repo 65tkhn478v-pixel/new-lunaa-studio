@@ -1,0 +1,86 @@
+/* =========================================================
+   TESTEZ-VOUS EN 30 SECONDES — encart sombre
+   (même traitement que le bloc CTA final)
+   ========================================================= */
+.box{
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  background: var(--ink);
+  color: var(--paper-raised);
+  border-radius: var(--radius-lg);
+  padding: clamp(2.2rem, 6vw, 4.5rem) clamp(1.4rem, 5vw, 4rem);
+}
+.box::before{
+  content: "";
+  position: absolute;
+  width: 60vw; height: 60vw;
+  max-width: 600px; max-height: 600px;
+  background: radial-gradient(circle, rgba(201,123,58,0.22), transparent 70%);
+  top: -30%; right: -15%;
+  pointer-events: none;
+}
+
+.copy{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+.copy h2{
+  color: var(--paper-raised);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+}
+.copy p{
+  color: rgba(247,241,230,0.75);
+  font-size: 1.05rem;
+  max-width: 50ch;
+}
+.copy .punch{
+  color: var(--terracotta);
+  font-weight: 600;
+}
+.copy :global(.btn){ margin-top: 0.6rem; }
+
+/* barre de recherche stylisée */
+.search{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-width: 0;
+  padding: 1rem 1.3rem;
+  border-radius: 999px;
+  background: var(--paper-raised);
+  color: var(--ink);
+  box-shadow: 0 20px 50px -25px rgba(201,123,58,0.6);
+}
+.search-icon{ flex: none; color: var(--muted); }
+.search-text{
+  font-size: 1.05rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.caret{
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--terracotta);
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink{ 50%{ opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce){
+  .caret{ animation: none; }
+}
+
+@media (max-width: 860px){
+  .box{ grid-template-columns: 1fr; }
+}

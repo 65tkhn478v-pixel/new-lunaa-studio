@@ -1,6 +1,10 @@
 import GradientBackground from "./components/GradientBackground";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
+import Benefices from "./components/Benefices";
+import TestRecherche from "./components/TestRecherche";
+import FicheGoogle from "./components/FicheGoogle";
+import Faq from "./components/Faq";
 import NotreApproche from "./components/NotreApproche";
 import Realisations from "./components/Realisations";
 import APropos from "./components/APropos";
@@ -24,12 +28,16 @@ export default function App() {
 
       <main id="main">
         <Hero />
+        <Benefices />
+        <TestRecherche />
         <NotreApproche />
         <Realisations />
         <APropos />
+        <FicheGoogle />
         <Tarifs />
         <CeQuOnGere />
         <OutilsInfrastructure />
+        <Faq />
         <CTAFinal />
         <Confiance />
       </main>

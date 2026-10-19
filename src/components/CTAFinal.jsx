@@ -9,7 +9,7 @@ export default function CTAFinal() {
     <section className="section" id="contact">
       <div className="wrap">
         <Reveal as="div" className={styles["cta-final"]}>
-          <span className="eyebrow">C'est le moment</span>
+          <span className="eyebrow">Contact</span>
           <h2>Discutons de votre projet</h2>
           <p>
             Écrivez-moi le nom de votre commerce et votre ville. Je vous réponds sous 24 h pour

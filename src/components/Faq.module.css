@@ -1,0 +1,57 @@
+/* =========================================================
+   FAQ — accordéon
+   ========================================================= */
+.list{
+  max-width: 820px;
+  border-top: 1px solid var(--line);
+}
+
+.item{ border-bottom: 1px solid var(--line); }
+
+.question{ font-size: inherit; }
+.question button{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  padding: 1.4rem 0;
+  background: none;
+  border: none;
+  text-align: left;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-weight: 560;
+  font-size: clamp(1.1rem, 2.2vw, 1.35rem);
+  line-height: 1.25;
+}
+.question button:hover{ color: var(--terracotta-deep); }
+
+.toggle{
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  background: var(--paper-dim);
+  color: var(--ink);
+  transition: transform 0.4s var(--ease), background 0.35s var(--ease);
+}
+.is-open .toggle{
+  transform: rotate(45deg);
+  background: var(--terracotta);
+}
+
+.panel{ overflow: hidden; }
+.panel p{
+  padding-bottom: 1.5rem;
+  max-width: 60ch;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .toggle{ transition: none; }
+}

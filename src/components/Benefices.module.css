@@ -1,0 +1,41 @@
+/* =========================================================
+   CE QUE VOUS Y GAGNEZ — trois cartes
+   ========================================================= */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: clamp(1.6rem, 3vw, 2.2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper-raised);
+  transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.card:hover{
+  border-color: var(--terracotta);
+  transform: translateY(-3px);
+}
+
+.icon{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: var(--terracotta-tint);
+  color: var(--terracotta-deep);
+}
+
+.card h3{ font-size: clamp(1.25rem, 2.2vw, 1.5rem); }
+.card p{ color: var(--muted); font-size: 1rem; }
+
+@media (max-width: 860px){
+  .grid{ grid-template-columns: 1fr; }
+}

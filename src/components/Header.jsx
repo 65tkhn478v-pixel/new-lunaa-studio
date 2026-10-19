@@ -42,12 +42,14 @@ export default function Header({ variant = "home" }) {
     variant === "legal"
       ? [
           { href: `${prefix}#approche`, label: "Approche" },
+          { href: `${prefix}#fiche-google`, label: "Fiche Google" },
           { href: `${prefix}#tarifs`, label: "Tarifs" },
         ]
       : [
           { href: `${prefix}#approche`, label: "Approche" },
           { href: `${prefix}#realisations`, label: "Réalisations" },
           { href: `${prefix}#qui-suis-je`, label: "Qui suis-je" },
+          { href: `${prefix}#fiche-google`, label: "Fiche Google" },
           { href: `${prefix}#tarifs`, label: "Tarifs" },
         ];
 
@@ -55,6 +57,8 @@ export default function Header({ variant = "home" }) {
     { href: `${prefix}#approche`, label: "Approche" },
     { href: `${prefix}#realisations`, label: "Réalisations" },
     { href: `${prefix}#qui-suis-je`, label: "Qui suis-je" },
+    { href: `${prefix}#fiche-google`, label: "Fiche Google" },
+    { href: `${prefix}#tarifs`, label: "Tarifs" },
     { href: `${prefix}#contact`, label: "Contact" },
   ];
 

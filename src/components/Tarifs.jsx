@@ -14,9 +14,9 @@ export default function Tarifs() {
       <div className="wrap relative">
         <Reveal as="div" className="section-head mx-auto items-center text-center">
           <span className="eyebrow text-[#C97B3A]">Tarifs standards</span>
-          <h2>Après le lancement</h2>
+          <h2>Mes tarifs</h2>
           <p className="!text-[#F5F1E8]/70">
-            Ce sont les tarifs qui s'appliquent.
+            Deux formules, selon que vous préférez payer au mois ou une fois pour toutes.
           </p>
         </Reveal>
 
