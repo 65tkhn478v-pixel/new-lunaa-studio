@@ -41,12 +41,10 @@ export default function Header({ variant = "home" }) {
   const navLinks =
     variant === "legal"
       ? [
-          { href: `${prefix}#offre`, label: "Offre" },
           { href: `${prefix}#approche`, label: "Approche" },
           { href: `${prefix}#tarifs`, label: "Tarifs" },
         ]
       : [
-          { href: `${prefix}#offre`, label: "Offre" },
           { href: `${prefix}#approche`, label: "Approche" },
           { href: `${prefix}#realisations`, label: "Réalisations" },
           { href: `${prefix}#qui-suis-je`, label: "Qui suis-je" },
@@ -54,7 +52,6 @@ export default function Header({ variant = "home" }) {
         ];
 
   const mobileLinks = [
-    { href: `${prefix}#offre`, label: "Offre" },
     { href: `${prefix}#approche`, label: "Approche" },
     { href: `${prefix}#realisations`, label: "Réalisations" },
     { href: `${prefix}#qui-suis-je`, label: "Qui suis-je" },

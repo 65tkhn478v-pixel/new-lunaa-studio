@@ -57,12 +57,6 @@
   align-items: center;
   gap: 1.4rem;
 }
-.hero-note{
-  font-size: 0.86rem;
-  color: var(--muted);
-  font-weight: 500;
-}
-
 /* illustration — vitrines abstraites dérivées du logo */
 .hero-art{
   position: relative;

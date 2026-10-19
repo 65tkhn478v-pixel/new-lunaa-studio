@@ -17,8 +17,8 @@ export default function Hero() {
               Hauts-de-France. Boulangers, coiffeurs, artisans, petits commerces.
             </p>
             <div className={styles["hero-actions"]}>
-              <a className="btn btn-primary" href="#offre">
-                <span>Voir l'offre de lancement</span>
+              <a className="btn btn-primary" href="#tarifs">
+                <span>Voir les tarifs</span>
                 <span className="btn-icon">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                     <path
@@ -31,9 +31,6 @@ export default function Hero() {
                   </svg>
                 </span>
               </a>
-              <span className={styles["hero-note"]}>
-                3 places gratuites ce mois-ci · Hauts-de-France
-              </span>
             </div>
           </Reveal>
 

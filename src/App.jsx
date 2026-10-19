@@ -1,7 +1,6 @@
 import GradientBackground from "./components/GradientBackground";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Offre from "./components/Offre";
 import NotreApproche from "./components/NotreApproche";
 import Realisations from "./components/Realisations";
 import APropos from "./components/APropos";
@@ -25,7 +24,6 @@ export default function App() {
 
       <main id="main">
         <Hero />
-        <Offre />
         <NotreApproche />
         <Realisations />
         <APropos />

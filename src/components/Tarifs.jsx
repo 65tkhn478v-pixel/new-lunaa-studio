@@ -16,8 +16,7 @@ export default function Tarifs() {
           <span className="eyebrow text-[#C97B3A]">Tarifs standards</span>
           <h2>Après le lancement</h2>
           <p className="!text-[#F5F1E8]/70">
-            Ce sont les tarifs qui s'appliquent après la période de lancement. Les 3 places de
-            ce mois-ci restent à 15 €/mois d'hébergement.
+            Ce sont les tarifs qui s'appliquent.
           </p>
         </Reveal>
 
