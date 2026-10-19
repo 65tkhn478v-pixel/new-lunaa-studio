@@ -36,6 +36,7 @@ export const PricingCard = ({
   price,
   period,
   bestFor,
+  tagline,
   CTA,
   href,
   benefits,
@@ -83,6 +84,13 @@ export const PricingCard = ({
           <span className="bg-gradient-to-br from-[#F5F1E8] to-[#C97B3A] bg-clip-text text-center text-[0.95rem] text-transparent">
             {bestFor}
           </span>
+          {/* Hauteur de 2 lignes réservée sur desktop : les listes des deux
+              cartes restent alignées quelle que soit la longueur de l'accroche. */}
+          {tagline && (
+            <span className="mt-3 max-w-[44ch] text-center text-[0.95rem] italic leading-snug text-[#F5F1E8]/75 md:min-h-[2.75em]">
+              {tagline}
+            </span>
+          )}
         </div>
         <ul className="flex-1 space-y-4 py-8 sm:py-9">
           {benefits.map((benefit, index) => (

@@ -77,7 +77,7 @@ export default function FicheGoogle() {
         <Reveal as="div" className="section-head">
           <span className="eyebrow">Visibilité locale</span>
           <h2>Votre fiche Google, complète et à jour</h2>
-          <p>Inclus dans l'Option Visibilité.</p>
+          <p>Inclus dans l'option « Être trouvé sur Google ».</p>
         </Reveal>
 
         <div className={styles.compare}>

@@ -19,7 +19,7 @@ const STEPS = [
   {
     num: "03",
     title: "Mise en ligne",
-    text: "Nom de domaine et hébergement : tout est pris en charge, vous n'avez rien à signer. La fiche Google est disponible avec l'Option Visibilité.",
+    text: "Nom de domaine et hébergement : tout est pris en charge, vous n'avez rien à signer. La fiche Google est disponible avec l'option « Être trouvé sur Google ».",
   },
   {
     num: "04",
