@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "framer-motion";
 import styles from "./Header.module.css";
 
 const ARROW_ICON = (
@@ -13,21 +14,84 @@ const ARROW_ICON = (
   </svg>
 );
 
+// Masquage au scroll : basé uniquement sur window.scrollY (molette, trackpad,
+// clavier et tactile se comportent pareil).
+const TOP_ZONE = 80; // px : toujours visible en haut de page
+const THRESHOLD = 8; // px : variations ignorées (anti-tremblement)
+const ANCHOR_LOCK_MAX = 1000; // ms : verrou max pendant un scroll vers une ancre
+
 // `variant`: "home" (page principale, ancres locales) ou "legal"
 // (page mentions légales, ancres préfixées par "/" vers la page d'accueil).
 export default function Header({ variant = "home" }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isHiddenByScroll, setIsHiddenByScroll] = useState(false);
+  const [hasFocusWithin, setHasFocusWithin] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
+  const lastY = useRef(0);
+  const anchorLock = useRef(false);
 
   const prefix = variant === "legal" ? "/" : "";
   const brandHref = variant === "legal" ? "/" : "#main";
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 12);
-    onScroll();
+    let frame = 0;
+    lastY.current = window.scrollY;
+
+    const update = () => {
+      frame = 0;
+      const y = window.scrollY;
+      const maxY = document.documentElement.scrollHeight - window.innerHeight;
+      // Rebond élastique (iOS) : valeurs hors de la page, ignorées.
+      if (y < 0 || y > maxY + 1) return;
+
+      setIsScrolled(y > 12);
+
+      if (y < TOP_ZONE) {
+        setIsHiddenByScroll(false);
+        lastY.current = y;
+        return;
+      }
+      if (anchorLock.current) {
+        lastY.current = y;
+        return;
+      }
+      const delta = y - lastY.current;
+      if (Math.abs(delta) < THRESHOLD) return;
+      setIsHiddenByScroll(delta > 0);
+      lastY.current = y;
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
+
+  // Clic sur une ancre du menu : le header reste visible pendant le scroll
+  // automatique, puis la référence repart de la position d'arrivée.
+  const lockDuringAnchorScroll = () => {
+    anchorLock.current = true;
+    setIsHiddenByScroll(false);
+    let timer = 0;
+    const release = () => {
+      anchorLock.current = false;
+      lastY.current = window.scrollY;
+      window.removeEventListener("scrollend", release);
+      clearTimeout(timer);
+    };
+    window.addEventListener("scrollend", release, { once: true });
+    timer = setTimeout(release, ANCHOR_LOCK_MAX);
+  };
+
+  const isHidden =
+    isHiddenByScroll && !isMenuOpen && !hasFocusWithin && !shouldReduceMotion;
 
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? "hidden" : "";
@@ -36,7 +100,10 @@ export default function Header({ variant = "home" }) {
     };
   }, [isMenuOpen]);
 
-  const closeMenu = () => setIsMenuOpen(false);
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+    lockDuringAnchorScroll();
+  };
 
   const navLinks =
     variant === "legal"
@@ -64,7 +131,20 @@ export default function Header({ variant = "home" }) {
 
   return (
     <>
-      <div className={styles["nav-shell"]}>
+      <div
+        className={`${styles["nav-shell"]} ${isHidden ? styles["is-hidden"] : ""}`}
+        // Focus clavier uniquement : un clic souris sur un lien ne doit pas
+        // bloquer le header en position visible.
+        onFocus={(e) => {
+          if (e.target.matches(":focus-visible")) setHasFocusWithin(true);
+        }}
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget)) setHasFocusWithin(false);
+        }}
+        onClick={(e) => {
+          if (e.target.closest('a[href*="#"]')) lockDuringAnchorScroll();
+        }}
+      >
         <nav className={`${styles.nav} ${isScrolled ? styles["is-scrolled"] : ""}`}>
           <a href={brandHref} className={styles["nav-brand"]}>
             <img src="/assets/icone-couleur.svg" alt="" width="26" height="26" />
